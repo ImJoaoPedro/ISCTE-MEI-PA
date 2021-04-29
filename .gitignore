@@ -209,3 +209,8 @@ build/tmp/test/jar_extract_8183948174529922020_tmp
 .gradle/6.8/fileChanges/last-build.bin
 .gradle/6.8/executionHistory/executionHistory.lock
 .gradle/6.8/executionHistory/executionHistory.bin
+build/classes/kotlin/test/generator/SearcherTest$testSearchAllStrings$searcher$1.class
+build/classes/kotlin/test/generator/SearcherTest$testSearchByString$searcher$1.class
+build/classes/kotlin/test/testModels/Guitar.class
+build/classes/kotlin/test/testModels/Musician.class
+build/tmp/test/jar_extract_4740132737413264592_tmp

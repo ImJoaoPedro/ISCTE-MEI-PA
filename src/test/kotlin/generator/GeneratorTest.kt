@@ -1,51 +1,38 @@
 package generator
 
 import org.junit.jupiter.api.Test
+import testModels.Guitar
+import testModels.Musician
 import kotlin.test.assertEquals
-
-enum class Guitar {
-    Fender,
-    Epiphone,
-    Gibson,
-    Squier
-}
-
-data class Musician(
-    val name: String,
-    val age: Int,
-    val hasAlbum: Boolean,
-    val guitar: Guitar,
-    val colleagues: List<Musician>
-)
 
 internal class GeneratorTest {
 
     @Test
-    fun testNull(){
+    fun testGenerateNull(){
         assertEquals("null", Generator().generate(null).toString())
     }
     @Test
-    fun testNumber(){
+    fun testGenerateNumber(){
         assertEquals("5", Generator().generate(5).toString())
     }
     @Test
-    fun testString(){
+    fun testGenerateString(){
         assertEquals("ola", Generator().generate("ola").toString())
     }
     @Test
-    fun testBoolean(){
+    fun testGenerateBoolean(){
         assertEquals("true", Generator().generate(true).toString())
         assertEquals("false", Generator().generate(false).toString())
     }
     @Test
-    fun testArray(){
+    fun testGenerateArray(){
         assertEquals(
             "[ \"ola\", 5, true, null ]",
             Generator().generate(listOf("ola", 5, true, null))
         )
     }
     @Test
-    fun testObject(){
+    fun testGenerateObject(){
         val srv = Musician("Stevie Ray Vaughn", 28, true, Guitar.Fender, listOf())
         val hendrix = Musician("Jimi Hendrix", 27, true, Guitar.Fender, listOf(srv))
         assertEquals(
