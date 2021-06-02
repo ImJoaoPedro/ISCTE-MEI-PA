@@ -17,7 +17,7 @@ internal class GeneratorTest {
     }
     @Test
     fun testGenerateString(){
-        assertEquals("ola", Generator().generate("ola").toString())
+        assertEquals("\"ola\"", Generator().generate("ola").toString())
     }
     @Test
     fun testGenerateBoolean(){
@@ -28,7 +28,7 @@ internal class GeneratorTest {
     fun testGenerateArray(){
         assertEquals(
             "[ \"ola\", 5, true, null ]",
-            Generator().generate(listOf("ola", 5, true, null))
+            Generator().generate(listOf("ola", 5, true, null)).toString()
         )
     }
     @Test
@@ -36,7 +36,7 @@ internal class GeneratorTest {
         val srv = Musician("Stevie Ray Vaughn", 28, true, Guitar.Fender, listOf())
         val hendrix = Musician("Jimi Hendrix", 27, true, Guitar.Fender, listOf(srv))
         assertEquals(
-            "",
+            "{ \"age\": 27, \"colleagues\": [ { \"age\": 28, \"colleagues\": [ ], \"guitar\": \"Fender\", \"hasAlbum\": true, \"name\": \"Stevie Ray Vaughn\" } ], \"guitar\": \"Fender\", \"hasAlbum\": true, \"name\": \"Jimi Hendrix\" }",
             Generator().generate(hendrix).toString()
         )
     }

@@ -1,7 +1,6 @@
 package generator
 
 import objects.JsonString
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import testModels.Guitar
 import testModels.Musician
@@ -19,7 +18,7 @@ internal class SearcherTest{
         json.accept(searcher)
 
         assertEquals(
-            "[\"Jimi Hendrix\", \"Stevie Ray Vaughn\"]",
+            "[\"Fender\", \"Stevie Ray Vaughn\", \"Fender\", \"Jimi Hendrix\"]",
             searcher.results.toString()
         )
     }
@@ -31,7 +30,7 @@ internal class SearcherTest{
         json.accept(searcher)
 
         assertEquals(
-            "[\"Stevie Ray Vaughn\"]",
+            "[\"Jimi Hendrix\"]",
             searcher.results.toString()
         )
     }

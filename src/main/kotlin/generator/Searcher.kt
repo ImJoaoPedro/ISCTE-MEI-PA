@@ -5,17 +5,17 @@ import visitors.Composite
 import visitors.Leaf
 import visitors.Visitor
 
-class Searcher(val parameter: (JsonValue) -> Boolean) : Visitor {
+class Searcher(val criteria: (JsonValue) -> Boolean) : Visitor {
 
     val results: MutableList<JsonValue> = mutableListOf()
 
     override fun visit(l: Leaf) {
-        if(parameter(l)){
+        if(criteria(l)){
             results.add(l)
         }
     }
     override fun visit(c: Composite): Boolean {
-        if(parameter(c)){
+        if(criteria(c)){
             results.add(c)
         }
         return true

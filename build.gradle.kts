@@ -17,13 +17,7 @@ dependencies {
     testImplementation(kotlin("test-junit5"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
-}
-
-sourceSets.main {
-    java.srcDirs("src/main/Java", "src/main/Kotlin")
-}
-sourceSets.test{
-    java.srcDirs("src/test/Java", "src/test/Kotlin")
+    implementation(fileTree(mapOf("dir" to "lib", "include" to listOf("*.jar"))))
 }
 
 tasks.test {

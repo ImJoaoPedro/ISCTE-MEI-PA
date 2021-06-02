@@ -9,5 +9,6 @@ abstract class Composite : JsonValue() {
             children.forEach{
                 it.accept(v)
             }
+        v.endVisit(this)
     }
 }

@@ -1,13 +1,9 @@
 package generator
 
+import Ignore
+import Key
 import objects.*
 import kotlin.reflect.full.*
-
-@Target(AnnotationTarget.PROPERTY)
-annotation class Ignore
-
-@Target(AnnotationTarget.PROPERTY)
-annotation class Key(val name: String)
 
 class Generator {
 
