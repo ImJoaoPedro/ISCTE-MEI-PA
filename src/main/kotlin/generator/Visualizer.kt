@@ -11,17 +11,9 @@ import org.eclipse.swt.graphics.Color
 import org.eclipse.swt.layout.GridData
 import org.eclipse.swt.layout.GridLayout
 import org.eclipse.swt.widgets.*
-import plugins.Injector
 import visitors.Leaf
 import plugins.action.ActionPlugin
 import plugins.presentation.PresentationPlugin
-
-fun main() {
-    val srv = MMusician("Stevie Ray Vaughn", 28, true, GGuitar.Fender, listOf())
-    val hendrix = MMusician("Jimi Hendrix", 27, true, GGuitar.Fender, listOf(srv))
-    val json = Generator().generate(hendrix)
-    Injector.create(Visualizer(json)).open()
-}
 
 class Visualizer(val value : JsonValue) {
     val shell: Shell

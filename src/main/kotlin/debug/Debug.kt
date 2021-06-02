@@ -1,6 +1,8 @@
 package debug
 
+import Visualizer
 import generator.Generator
+import plugins.Injector
 
 /*
 DEBUGGING CLASS USED TO INSTATIATE OBJECTS WITH DUMMY NAMES
@@ -24,9 +26,10 @@ internal data class MMusician(
 )
 
 fun main(args: Array<String>) {
-    //print(Generator().generate(listOf("ola", 5, true, null).toString()))
-
     val srv = MMusician("Stevie Ray Vaughn", 28, true, GGuitar.Fender, listOf())
     val hendrix = MMusician("Jimi Hendrix", 27, true, GGuitar.Fender, listOf(srv))
     print(Generator().generate(hendrix).toString())
+
+    val json = Generator().generate(hendrix)
+    Injector.create(Visualizer(json)).open()
 }
